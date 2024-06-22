@@ -13,9 +13,7 @@ def index(request):
         form = TaskModelForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('')
-
-
+            return redirect('/')
 
     return render(request, 'tasks/index.html', context)
 
