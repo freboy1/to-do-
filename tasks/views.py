@@ -19,6 +19,8 @@ def index(request):
 
 def update(request, id):
     task = TaskModel.objects.get(id=id)
-    context = {'task': task}
+
+    form = TaskModelForm(instance=task)
+    context = {'task': task, 'form': form}
 
     return render(request, 'tasks/update.html', context)
