@@ -1,5 +1,13 @@
 <h1>What'up Nigger</h1>
 
 {% for task in tasks %}
-    {{task.task}}
+    <div>
+        {% if task.done %}
+        <strike>
+            {{task.task}}
+        </strike>
+        {% else %}
+        {{task.task}}
+        {% endif %}
+    </div>
 {% endfor %}
