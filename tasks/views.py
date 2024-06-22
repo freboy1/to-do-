@@ -7,3 +7,9 @@ def index(request):
     context = {'tasks': tasks}
 
     return render(request, 'tasks/index.html', context)
+
+def update(request, id):
+    task = TaskModel.objects.get(id=id)
+    context = {'task': task}
+
+    return render(request, 'tasks/update.html', context)
