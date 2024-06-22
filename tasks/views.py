@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import TaskModel
 from .forms import TaskModelForm
 
@@ -8,6 +8,14 @@ def index(request):
     tasks = TaskModel.objects.all()
     form = TaskModelForm()
     context = {'tasks': tasks, 'form': form}
+
+    if request.method == 'POST':
+        form = TaskModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('')
+
+
 
     return render(request, 'tasks/index.html', context)
 
