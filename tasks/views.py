@@ -23,4 +23,11 @@ def update(request, id):
     form = TaskModelForm(instance=task)
     context = {'task': task, 'form': form}
 
+    if request.method == 'POST':
+        form = TaskModelForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+
     return render(request, 'tasks/update.html', context)
