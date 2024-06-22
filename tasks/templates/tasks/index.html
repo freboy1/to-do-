@@ -9,5 +9,8 @@
         {% else %}
         {{task.task}}
         {% endif %}
+
+        <a href="{% url "update" task.id %}">Update</a>
+
     </div>
 {% endfor %}
