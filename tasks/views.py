@@ -36,4 +36,9 @@ def delete(request, id):
     task = TaskModel.objects.get(id=id)
     context = {'task': task}
 
+
+    if request.method == 'POST':
+        task.delete()
+        return redirect('/')
+
     return render(request, 'tasks/delete.html', context)
