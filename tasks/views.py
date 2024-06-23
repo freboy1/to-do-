@@ -31,3 +31,9 @@ def update(request, id):
 
 
     return render(request, 'tasks/update.html', context)
+
+def delete(request, id):
+    task = TaskModel.objects.get(id=id)
+    context = {'task': task}
+
+    return render(request, 'tasks/delete.html', context)
