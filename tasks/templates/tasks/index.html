@@ -8,8 +8,6 @@
 
 
 
-
-
 {% for task in tasks %}
     <div>
         {% if task.done %}
@@ -21,6 +19,6 @@
         {% endif %}
 
         <a href="{% url "update" task.id %}">Update</a>
-
+        <a href="{% url "delete" task.id %}">Delete</a>
     </div>
 {% endfor %}
